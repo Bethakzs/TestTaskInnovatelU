@@ -31,7 +31,6 @@ public class DocumentManager {
      */
     public Document save(Document document) {
         String documentId = Optional.ofNullable(document.getId()).orElseGet(this::generateUniqueId);
-        System.out.println("Document ID: " + documentId);
         document.setId(documentId);
         document.setCreated(Instant.now());
         storage.put(documentId, document);
